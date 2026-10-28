@@ -45,6 +45,8 @@ server:
     private-address: fd00::/8
     private-address: fe80::/10
 
+    # ZONEMD: Integritaetsfehler nicht ignorieren
+    zonemd-permissive-mode: no
 
 remote-control:
     control-enable: yes
@@ -63,6 +65,11 @@ auth-zone:
     fallback-enabled: yes
     for-downstream: no
     for-upstream: yes
+    
+    # ZONEMD: Root-Zone kryptografisch pruefen
+    zonemd-check: yes
+    zonemd-reject-absence: yes
+     
     zonefile: /var/lib/unbound/root.zone
 
 #Unbound danach neu starten
